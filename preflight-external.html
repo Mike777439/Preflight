@@ -294,9 +294,19 @@ footer .disclaimer { color: rgba(255,255,255,.7); max-width: 560px; }
 .zoom-cal input[type=range] { width: min(100%, 420px); }
 .zoom-note { font-size: .78rem; line-height: 1.45; color: var(--leach-text-muted); background: var(--leach-ice-light); border-radius: var(--radius-card); padding: .6rem .85rem; margin: .9rem 0 0; }
 
+/* ---- staff bar (internal build only) ---- */
+.staff-bar { background: var(--leach-lavender-light); border-bottom: 1px solid var(--leach-lavender); font-size: .85rem; }
+.staff-bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .9rem; padding-top: .45rem; padding-bottom: .45rem; }
+.staff-txt { color: var(--leach-text); }
+.staff-txt a { font-weight: 700; color: #000; text-decoration: underline; }
+.staff-copy { background: #fff; }
+.staff-guide { display: inline-block; text-decoration: none; }
+.staff-guide:hover { text-decoration: none; }
+
 /* ---- print ---- */
 @media print {
   header.leach, footer.leach { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .staff-bar,
   aside.settings, .dropzone, .guidance, .fc-actions, .summary .btns, .pv-controls, .drop-hint, .fullsize, .intro .privacy { display: none !important; }
   .layout { display: block; padding: 0; }
   .file-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
@@ -340,7 +350,12 @@ footer .disclaimer { color: rgba(255,255,255,.7); max-width: 560px; }
     <div class="tool-name"><span class="eyebrow">Customer artwork tools</span><span class="name">Artwork Preflight</span></div>
   </div>
 </header>
-
+<div class="staff-bar help-bar">
+  <div class="wrap">
+    <span class="staff-txt">New to Artwork Preflight? Read the step-by-step guide.</span>
+    <a class="btn-small staff-copy staff-guide" href="Artwork%20Preflight%20-%20Customer%20User%20Guide.pdf" target="_blank" rel="noopener">User guide</a>
+  </div>
+</div>
 <main class="wrap">
   <section class="intro">
     <span class="eyebrow">Before you send</span>
@@ -2849,6 +2864,9 @@ function init() {
   window.addEventListener('dragover', e => e.preventDefault());
   window.addEventListener('drop', e => { e.preventDefault(); depth = 0; document.body.classList.remove('dragging'); if (e.dataTransfer && e.dataTransfer.files.length) addFiles([...e.dataTransfer.files]); });
   $('#copyAll').addEventListener('click', e => copyText(reportText(items), e.target, 'Copied'));
+  // Staff bar (internal build only): copy the public preflight link to paste into a customer email.
+  const cl = $('#copyCustomerLink');
+  if (cl) cl.addEventListener('click', () => copyText($('#customerUrl').href, cl, 'Link copied ✓'));
   $('#proofAll').addEventListener('click', () => openProof(items));
   $('#proofForm').addEventListener('submit', makeProof);
   $('#proofCancel').addEventListener('click', closeProof);
