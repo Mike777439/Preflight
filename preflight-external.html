@@ -352,8 +352,9 @@ footer .disclaimer { color: rgba(255,255,255,.7); max-width: 560px; }
 </header>
 <div class="staff-bar help-bar">
   <div class="wrap">
-    <span class="staff-txt">New to Artwork Preflight? Read the step-by-step guide.</span>
+    <span class="staff-txt">New to Artwork Preflight? Read our guides.</span>
     <a class="btn-small staff-copy staff-guide" href="Artwork%20Preflight%20-%20Customer%20User%20Guide.pdf" target="_blank" rel="noopener">User guide</a>
+    <a class="btn-small staff-copy staff-guide" href="Artwork%20Guide.pdf" target="_blank" rel="noopener">Artwork guide</a>
   </div>
 </div>
 <main class="wrap">
@@ -2131,9 +2132,9 @@ function proofFileName(list, opt) {
    text in pt, lines in pt. rgb/spot: 'ok' | 'warn' | 'fail'.
 ---------------------------------------------------------------------------- */
 const PRESETS = {
-  general:   { label: 'General large format',                         bleed: 5,  safe: 10,  target: 150, min: 100, minText: 6, minLine: 0.25, rgb: 'warn', spot: 'warn', note: 'These are generic settings for a range of applications. 4-colour black of 75C, 75M, 75Y, 100K is required.' },
-  seg:       { label: 'Tension fabric – silicone edge (SEG)',          bleed: 5,  safe: 10,  target: 120, min: 80,  minText: 8, minLine: 0.5,  rgb: 'warn', spot: 'warn', note: 'Keep text and logos well inside the safe zone to allow for stretch. 4-colour black of 75C, 75M, 75Y, 100K is required.' },
-  lightbox:  { label: 'Backlit lightbox fabric',                       bleed: 5,  safe: 10,  target: 150, min: 100, minText: 8, minLine: 0.5,  rgb: 'warn', spot: 'warn', note: 'Keep text and logos well inside the safe zone to allow for stretch. 4-colour black of 75C, 75M, 75Y, 100K is required.' },
+  general:   { label: 'General large format',                         bleed: 20, safe: 10,  target: 150, min: 100, minText: 6, minLine: 0.25, rgb: 'warn', spot: 'warn', note: 'These are generic settings for a range of applications. 4-colour black of 75C, 75M, 75Y, 100K is required.' },
+  seg:       { label: 'Tension fabric – silicone edge (SEG)',          bleed: 20, safe: 10,  target: 120, min: 80,  minText: 8, minLine: 0.5,  rgb: 'warn', spot: 'warn', note: 'Keep text and logos well inside the safe zone to allow for stretch. 4-colour black of 75C, 75M, 75Y, 100K is required.' },
+  lightbox:  { label: 'Backlit lightbox fabric',                       bleed: 20, safe: 10,  target: 150, min: 100, minText: 8, minLine: 0.5,  rgb: 'warn', spot: 'warn', note: 'Keep text and logos well inside the safe zone to allow for stretch. 4-colour black of 75C, 75M, 75Y, 100K is required.' },
   vinyl:     { label: 'Self-adhesive vinyl / window graphics',         bleed: 20, safe: 10,  target: 150, min: 100, minText: 6, minLine: 0.25, rgb: 'warn', spot: 'warn', note: 'For contour-cut vinyl, supply the cut path as a spot colour named CutContour. Artwork should be vectors if possible (Adobe Illustrator).' },
   rigid:     { label: 'Rigid boards – Foamex, Dibond, foamboard',     bleed: 5,  safe: 5,   target: 150, min: 100, minText: 6, minLine: 0.25, rgb: 'warn', spot: 'warn', note: 'Printed direct and routed — bleed covers routing tolerance. White inks should be a spot colour called White.' },
   wrap:      { label: 'Wrap-mount (wrapped round board or frame edge)', bleed: 25, safe: 10,  target: 150, min: 100, minText: 6, minLine: 0.25, rgb: 'warn', spot: 'warn', note: '25 mm minimum bleed for wrap mounts, with tick marks outside the bleed.' },
